@@ -1,0 +1,28 @@
+name: Build ClipboardToPNG
+
+on:
+  push:
+    branches: [ master ]
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build solution
+      run: msbuild ClipboardToPNG.sln /p:Configuration=Release
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ClipboardToPNG
+        path: |
+          **\Release\ClipboardToPNG.exe
