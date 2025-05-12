@@ -20,11 +20,6 @@ jobs:
     - name: Build solution
       run: msbuild ClipboardToPNG.sln /p:Configuration=Release
 
-    # ✅ Новый шаг: инициализация загрузки артефактов
-    - name: Setup artifact upload
-      uses: actions/setup-artifact@v4
-
-    # ✅ Новый способ загрузки артефакта
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
