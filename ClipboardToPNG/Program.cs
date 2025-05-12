@@ -18,7 +18,7 @@ namespace ClipboardToPNG
         {
             var data = Clipboard.GetDataObject() as DataObject;
 
-            string path = Environment.ExpandEnvironmentVariables(@"%TEMP%\clip.png");
+            string path = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Pictures\0_clip.png");
             //foreach (var i in data.GetFormats())
             //{
             //    Debug.Print(i);
